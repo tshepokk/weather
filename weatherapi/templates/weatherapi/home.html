@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather API</title>
+</head>
+<br>
+     <b>Weather Api</b><br>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <label>City Name: <input type="text" name="city_name" required></label>
+    <label>Period: <input type="number" name="period" minlength="1" maxlength="7" required></label>
+    <input type="submit" name="Submit" value="Search">
+</form>
+<br></br>
+<b>Results</b><br>
+{% if display_content %}
+    {% for k,v in display_content.items %}
+        {{ k }}: {{ v }}
+    {% endfor %}
+<p>No City Found</p>
+{% endif %}
+</body>
+</html>
